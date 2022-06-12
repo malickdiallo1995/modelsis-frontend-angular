@@ -1,0 +1,68 @@
+<mat-progress-spinner
+  *ngIf="loadingInit"
+  diameter="24"
+  mode="indeterminate"></mat-progress-spinner>
+<form [formGroup]="editProductFrom" *ngIf="!loadingInit">
+  <p></p>
+  <mat-form-field class="w-full">
+    <mat-label>Name*</mat-label>
+    <input
+      id="name"
+      matInput
+      [formControlName]="'name'" value="{{product.name}}">
+    <mat-error *ngIf="editProductFrom.get('name').hasError('required')">
+      Name obligatoire
+    </mat-error>
+  </mat-form-field>
+  <!--  -->
+  <p></p>
+  <mat-form-field appearance="fill">
+    <mat-label>Type</mat-label>
+    <mat-select [formControlName]="'type'"  [(value)]="product.type.name" >
+
+      <mat-option *ngFor=" let type of types" [value]="type">
+        {{type.name}}
+      </mat-option>
+    </mat-select>
+    <mat-error *ngIf="editProductFrom.get('type').hasError('required')">Please choose a type</mat-error>
+  </mat-form-field>
+
+
+  <!--<mat-form-field appearance="fill">
+    <mat-label>Select</mat-label>
+    <mat-select >
+      <mat-option value="{{type.id}}" id="type" *ngFor="let type of types">{{type.name}}</mat-option>
+     </mat-select>
+  </mat-form-field>-->
+</form>
+<button *ngIf="!loading"
+        class="fuse-mat-button-large w-full mt-6"
+        mat-flat-button
+        color="primary"
+        [disabled]="editProductFrom.invalid"
+        (click)="onEditProduct(product)">
+                    <span *ngIf="!editProductFrom.disabled">
+                       Save
+                    </span>
+
+</button>
+<mat-progress-spinner
+  *ngIf="loading"
+  diameter="24"
+  mode="indeterminate"></mat-progress-spinner>
+<button
+  class="fuse-mat-button-large w-full mt-6"
+  mat-flat-button
+  color="warn"
+
+  (click)="onCancel()">
+                    <span >
+                       Cancel
+                    </span>
+  <!--<mat-progress-spinner
+    *ngIf="signUpForm.disabled"
+    [diameter]="24"
+    [mode]="'indeterminate'"></mat-progress-spinner>-->
+</button>
+
+
