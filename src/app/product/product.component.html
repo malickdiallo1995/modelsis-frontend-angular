@@ -1,5 +1,6 @@
+<app-header [title]="'Products List'"></app-header>
 
-  <div class="mat-elevation-z8">
+<div class="mat-elevation-z8">
     <mat-progress-bar *ngIf="this.loading" mode="indeterminate"></mat-progress-bar>
 
     <table mat-table [dataSource]="dataSource">
@@ -8,8 +9,7 @@
         <th mat-header-cell *matHeaderCellDef> ID </th>
         <td mat-cell *matCellDef="let element"> {{element.id}} </td>
       </ng-container>
-      &lt;!&ndash; Position Column &ndash;&gt;
-      &lt;!&ndash; Name Column &ndash;&gt;
+
       <ng-container matColumnDef="name">
         <th mat-header-cell *matHeaderCellDef> Name </th>
         <td mat-cell *matCellDef="let element"> {{element.name}} </td>

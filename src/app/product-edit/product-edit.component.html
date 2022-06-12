@@ -1,3 +1,5 @@
+<app-header [title]="'Edit Product'"></app-header>
+
 <mat-progress-spinner
   *ngIf="loadingInit"
   diameter="24"
@@ -35,34 +37,37 @@
      </mat-select>
   </mat-form-field>-->
 </form>
-<button *ngIf="!loading"
-        class="fuse-mat-button-large w-full mt-6"
-        mat-flat-button
-        color="primary"
-        [disabled]="editProductFrom.invalid"
-        (click)="onEditProduct(product)">
+<div class="button-display">
+  <button *ngIf="!loading"
+          class="fuse-mat-button-large w-full mt-6"
+          mat-flat-button
+          color="primary"
+          [disabled]="editProductFrom.invalid"
+          (click)="onEditProduct(product)">
                     <span *ngIf="!editProductFrom.disabled">
                        Save
                     </span>
 
-</button>
-<mat-progress-spinner
-  *ngIf="loading"
-  diameter="24"
-  mode="indeterminate"></mat-progress-spinner>
-<button
-  class="fuse-mat-button-large w-full mt-6"
-  mat-flat-button
-  color="warn"
+  </button>
+  <mat-progress-spinner
+    *ngIf="loading"
+    diameter="24"
+    mode="indeterminate"></mat-progress-spinner>
+  <button
+    class="fuse-mat-button-large w-full mt-6"
+    mat-flat-button
+    color="warn"
 
-  (click)="onCancel()">
+    (click)="onCancel()">
                     <span >
                        Cancel
                     </span>
-  <!--<mat-progress-spinner
-    *ngIf="signUpForm.disabled"
-    [diameter]="24"
-    [mode]="'indeterminate'"></mat-progress-spinner>-->
-</button>
+    <!--<mat-progress-spinner
+      *ngIf="signUpForm.disabled"
+      [diameter]="24"
+      [mode]="'indeterminate'"></mat-progress-spinner>-->
+  </button>
+
+</div>
 
 

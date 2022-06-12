@@ -1,0 +1,7 @@
+.button-display {
+  display: flex;
+  flex-direction: row;
+  align-items: initial;
+  justify-content: space-between;
+}
+
