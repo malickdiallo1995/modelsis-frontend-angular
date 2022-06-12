@@ -1,0 +1,44 @@
+
+<form [formGroup]="typeForm" >
+  <mat-form-field class="w-full">
+    <mat-label>Name*</mat-label>
+    <input
+      id="name"
+      matInput
+      [formControlName]="'name'">
+    <mat-error *ngIf="typeForm.get('name').hasError('required')">
+      Name obligatoire
+    </mat-error>
+  </mat-form-field>
+</form>
+    <button *ngIf="!loading"
+      class="fuse-mat-button-large w-full mt-6"
+      mat-flat-button
+      color="primary"
+      [disabled]="typeForm.invalid"
+      (click)="onAddType()">
+                    <span *ngIf="!typeForm.disabled">
+                       Save
+                    </span>
+
+    </button>
+    <mat-progress-spinner
+      *ngIf="loading"
+      diameter="24"
+      mode="indeterminate"></mat-progress-spinner>
+    <button
+      class="fuse-mat-button-large w-full mt-6"
+      mat-flat-button
+      color="warn"
+
+      (click)="onCancel()">
+                    <span >
+                       Cancel
+                    </span>
+      <!--<mat-progress-spinner
+        *ngIf="signUpForm.disabled"
+        [diameter]="24"
+        [mode]="'indeterminate'"></mat-progress-spinner>-->
+    </button>
+
+
