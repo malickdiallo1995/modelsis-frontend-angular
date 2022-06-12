@@ -76,7 +76,7 @@ export class ProductAddComponent implements OnInit {
   }
 
   onCancel() {
-
+    this.router.navigate(['']);
   }
 
 

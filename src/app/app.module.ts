@@ -22,6 +22,7 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { ProductAddComponent } from './product-add/product-add.component';
 import {MatSelectModule} from '@angular/material/select';
 import { ProductEditComponent } from './product-edit/product-edit.component';
+import {MatProgressBarModule} from '@angular/material/progress-bar';
 
 @NgModule({
   declarations: [
@@ -48,7 +49,8 @@ import { ProductEditComponent } from './product-edit/product-edit.component';
     ReactiveFormsModule,
     MatInputModule,
     MatProgressSpinnerModule,
-    MatSelectModule
+    MatSelectModule,
+    MatProgressBarModule
   ],
   providers: [],
   bootstrap: [AppComponent]

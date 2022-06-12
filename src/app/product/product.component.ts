@@ -22,7 +22,7 @@ export class ProductComponent implements OnInit, AfterViewInit {
   clickedRows   = new Set<Product>();
   ELEMENT_DATA : Product[];
   @ViewChild(MatPaginator) paginator: MatPaginator;
-
+  loading : boolean = false;
   ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;
   }
@@ -32,10 +32,12 @@ export class ProductComponent implements OnInit, AfterViewInit {
   constructor(private productService : ProductService, private router : Router) { }
 
   ngOnInit(): void {
+    this.loading = true;
      this.productService.getAllProducts().subscribe(
       respons=>{
         //this.ELEMENT_DATA =respons;
         this.dataSource.data = respons;
+        this.loading = false;
         console.log('***** element data : ',this.ELEMENT_DATA)
       }
     );

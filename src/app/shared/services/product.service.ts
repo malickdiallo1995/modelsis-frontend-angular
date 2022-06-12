@@ -8,7 +8,7 @@ import {environment} from '../../../environments/environment';
   providedIn: 'root'
 })
 export class ProductService {
-
+  private apiUrl  = environment.apiUrl;
   constructor(private http: HttpClient) { }
 
   getAllProducts() : Observable<Product[]>{
@@ -19,14 +19,18 @@ export class ProductService {
   }
 
   getAllType():Observable<any>{
-    return this.http.get<any>(environment.apiUrl+'productType')
+    return this.http.get<any>(this.apiUrl+'productType')
   }
 
   save(product: Product, id: number) : Observable<Product>{
-    return this.http.post<Product>(environment.apiUrl+'products/'+id, product)
+    return this.http.post<Product>(this.apiUrl+'products/'+id, product)
   }
 
   findProductById(productId: number) {
-    return this.http.get<Product>(environment.apiUrl+'products/'+productId)
+    return this.http.get<Product>(this.apiUrl+'products/'+productId)
+  }
+
+  update(product: Product, typeId : number) : Observable<Product>  {
+    return this.http.put<Product>(this.apiUrl+'products/'+typeId,product)
   }
 }
