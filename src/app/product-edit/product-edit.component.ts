@@ -18,25 +18,28 @@ export class ProductEditComponent implements OnInit {
   loading : Boolean = false;
   loadingInit : Boolean = false;
   types : Type[];
-  product : Product;
+  product : Product = new Product();
+
   constructor(private activatedRoute : ActivatedRoute,private formBuilder : FormBuilder, private productTypeService : ProductTypeService, private router : Router, private productService : ProductService ) { }
 
   ngOnInit(): void {
     this.loadingInit = true;
-
+    this.editProductFrom = this.formBuilder.group(
+      {
+        'name' :  ['',Validators.required],
+        'type' : ['',Validators.required]
+      }
+    )
     const productId = parseInt(this.activatedRoute.snapshot.paramMap.get('id')) ;
     this.productService.findProductById(productId).subscribe(
       response =>{
         console.log('response from findProductById : ',response);
         this.product = response;
-        this.editProductFrom = this.formBuilder.group(
-          {
-            'name' :  [this.product.name,Validators.required],
-            'type' : ['',Validators.required]
-          }
-        )
+        this.editProductFrom.get('name').setValue(this.product.name)
       }
-    )
+    );
+
+
 
     this.productTypeService.getAllType().subscribe(
       response =>{

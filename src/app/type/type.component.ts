@@ -49,6 +49,6 @@ export class TypeComponent implements OnInit {
   }
 
   onCancel() {
-
+    this.router.navigate(['']);
   }
 }
