@@ -1,4 +1,4 @@
-# modelsis-frontend-angular
+# Modelsis-frontend-angular
 ## 1- Introduction : 
 Ce projet a ete crée pour repondre aux besoins du test technique de Modelsis Sénégal.
 Il s'agit ici d'une application Angular de gestion de Produit qui permet de faire les operations suivantes : 
