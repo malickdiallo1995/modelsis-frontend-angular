@@ -42,8 +42,9 @@ export class ProductComponent implements OnInit, AfterViewInit {
     //console.log('***** ELEMENT DATA : ',ELEMENT_DATA);
   }
 
-  edit(element) {
+  edit(element : Product) {
     console.log('Element to update : ',element);
+    this.router.navigate(['/products/'+element.id]);
   }
 
   add() {

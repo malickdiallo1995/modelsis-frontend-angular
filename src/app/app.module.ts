@@ -21,6 +21,7 @@ import {MatInputModule} from '@angular/material/input';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { ProductAddComponent } from './product-add/product-add.component';
 import {MatSelectModule} from '@angular/material/select';
+import { ProductEditComponent } from './product-edit/product-edit.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import {MatSelectModule} from '@angular/material/select';
     TypeComponent,
     ProductListComponent,
     HeaderComponent,
-    ProductAddComponent
+    ProductAddComponent,
+    ProductEditComponent
   ],
   imports: [
     BrowserModule,

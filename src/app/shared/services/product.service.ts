@@ -25,4 +25,8 @@ export class ProductService {
   save(product: Product, id: number) : Observable<Product>{
     return this.http.post<Product>(environment.apiUrl+'products/'+id, product)
   }
+
+  findProductById(productId: number) {
+    return this.http.get<Product>(environment.apiUrl+'products/'+productId)
+  }
 }
